@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./header";
 
-const montserrat = Montserrat({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-jakarta",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -17,18 +18,36 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ 
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
-        <Header />
-      <div className="bg-home bg-no-repeat bg-cover">
-         <div className="bg-brown w-screen">
-          </div>
-          </div>
-        {children}
+     <body className={`${jakarta.variable} font-sans antialiased`}>
+        
+        {/* Wrapper Background */}
+        <div className="relative min-h-screen w-screen overflow-hidden">
+
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+          >
+            <source src="/video/bg-madara.mp4" type="video/mp4" />
+          </video>
+
+          {/* Overlay gelap */}
+          <div className="absolute inset-0 bg-black/50 -z-10"></div>
+
+          {/* Konten */}
+          <Header />
+          <main className="relative z-10">
+            {children}
+          </main>
+
+        </div>
+
       </body>
     </html>
   );

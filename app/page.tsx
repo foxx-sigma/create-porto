@@ -2,39 +2,38 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-100 dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-neutral-900 sm:items-start">
-   <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 items-center sm:items-start mb-12 w-full">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-100 dark:bg-transparent px-4">
+      <main className="flex min-h-screen w-full max-w-7xl flex-col items-center justify-center py-24 px-10 bg-white dark:bg-transparent backdrop-blur-sm rounded-2xl sm:items-start">
 
-  {/* AVATAR */}
-  <div className="relative w-60 h-60 sm:w-50 sm:h-50 rounded-full bg-gradient-to-tr ">
-    <div className="w-full h-full rounded-full bg-black overflow-hidden">
-      <Image
-        src="/Img/Fotoku.jpg"
-        alt="Profile"
-        fill
-        className="object-cover rounded-full"
-      />
-    </div>
-  </div>
+        <div className="flex flex-col sm:flex-row gap-10 items-center sm:items-start w-full">
 
-  {/* TEKS */}
-  <div className="flex flex-col gap-6 text-center sm:text-left">
-    <h1 className="text-4xl font-montserrat font-bold text-black dark:text-zinc-50">
-      Aesar Sikma
-    </h1>
+          {/* AVATAR */}
+          <div className="relative w-56 h-56 rounded-full overflow-hidden ring-2 ring-white/10">
+            <Image
+              src="/Img/Fotoku.jpg"
+              alt="Profile"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
-    <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-      Looking for a starting point or more instructions? Head over to{" "}
-      <a className="font-medium text-zinc-950 dark:text-zinc-50">Templates</a>{" "}
-      or the{" "}
-      <a className="font-medium text-zinc-950 dark:text-zinc-50">Learning</a>{" "}
-      center.
-    </p>
-  </div>
+          {/* TEKS */}
+          <div className="flex flex-col gap-6 text-center sm:text-left">
+            
+            {/* NAME */}
+            <h1 className="font-sans text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Aesar Sikma
+            </h1>
 
-</div>
+            {/* DESCRIPTION */}
+            <p className="font-sans max-w-md text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              Nothing Here
+            
+            </p>
 
+          </div>
+        </div>
 
       </main>
     </div>

@@ -2,6 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { arrayPorto } from '../data/portofolio';
 
+type Porto = {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    category: string;
+};
+
+type Props = {
+    portofolios: Porto[];
+    activateCategory: string | null;
+};
 
 export default function Portofolio() {
  return (
