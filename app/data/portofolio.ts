@@ -10,23 +10,23 @@ export interface PortofolioItem {
 export const arrayPorto: PortofolioItem[] = [
    {
      id: 1,
-     name: "Kupa - Food Delivery App",
-     image: "https://i.pinimg.com/564x/71/99/ce/7199ceaf6deb560080ac0de71bec0e2d.jpg",
-     description: "Kupa is a Premium Food Delivery App UI Kit consisting of 80+ pixel-perfect screens and easy to use in Figma.",
+     name: "GrowMate - Menanam Cerdas, dengan AI",
+     image: "Img/GrowMate.png",
+     description: "AI-based application that can identify plants.",
      category: "mobile"
    },
    {
      id: 2,
-     name: "Bakery shopping application",
-     image: "https://i.pinimg.com/564x/56/07/51/56075169f3befff95331d31bce2dd121.jpg",
-     description: "UI/UX,Web Design,Figma,Adobe Illustrator,Adobe XD,Adobe Photoshop.",
+     name: "CepuIn - Aplikasi Pelaporan Infrastruktur",
+     image: "Img/cepuin.png",
+     description: "An application that allows citizens to report damaged infrastructure.",
      category: "mobile"
    },
    {
      id: 3,
-     name: "Echofy – Environment, Ecology & Solar Energy",
-     image: "https://i.pinimg.com/736x/a9/be/c1/a9bec1cd989fa24fe67a2d41e779f8ce.jpg",
-     description: "Echofy Nature HTML Template is created to help you make world’s environment cleaner and save the nature.",
+     name: "Portofolio Website",
+     image: "Img/web-porto.png",
+     description: "My portfolio website which contains a little information and some projects that have been made.",
      category: "website"
    },
    {

@@ -9,7 +9,7 @@
 @theme inline {
   --color-background: #090101;
   --color-foreground: #f5efef;
-  --font-sans: var(--font-jakarta);
+  --font-logo: "Poppins", sans-serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -25,4 +25,15 @@ body {
 }
 * {
   font-family: var(--font-jakarta), system-ui, sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
 }

@@ -32,7 +32,7 @@ export default function RootLayout({
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover -z-10"
+            className="absolute inset-0 w-full h-full object-cover -z-10 fixed"
           >
             <source src="/video/bg-madara.mp4" type="video/mp4" />
           </video>
