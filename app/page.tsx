@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   return (
@@ -18,20 +21,40 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-                <span className="text-sm text-zinc-300">Learning</span>
+                <span className="text-sm text-zinc-300">  Learning</span>
               </div>
 
               {/* Heading */}
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
-                  Hi, I'm
+                  Hello, I'm
                   <span className="block bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-                    Aesar Sikma
+                    Aesar
+                    
                   </span>
+                  <TypeAnimation
+                    sequence={[
+                      'Fullstack Developer' ,
+                      2000,
+                      'Video Editor',
+                      2000,
+                      'Frontend Developer',
+                      2000,
+                      'Gamer',
+                      2000,
+                    ]}
+                    wrapper="span"
+                    cursor={true}
+                    repeat={Infinity}
+                    style={{ display: 'inline-block', marginLeft: '1px', color: 'white' , }}
+                    className="
+                    text-white
+                    text-2xl
+                    lg:text-4xl
+                
+                    "
+                  />
                 </h1>
-                <p className="text-xl lg:text-2xl text-zinc-400 font-light">
-                  Fullstack Developer
-                </p>
               </div>
 
               {/* Description */}
@@ -122,19 +145,19 @@ export default function Home() {
           {/* Stats Section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-white/10">
             <div className="text-center">
-              <h3 className="text-4xl font-bold text-white mb-2">15+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">3+</h3>
               <p className="text-zinc-400">Projects Completed</p>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold text-white mb-2">3+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">1+</h3>
               <p className="text-zinc-400">Years Experience</p>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold text-white mb-2">10+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">4+</h3>
               <p className="text-zinc-400">Happy Clients</p>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold text-white mb-2">5+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">4+</h3>
               <p className="text-zinc-400">Technologies</p>
             </div>
           </div>

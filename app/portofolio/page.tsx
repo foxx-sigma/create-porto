@@ -38,7 +38,7 @@ export default function PortfolioPage() {
           </h1>
           
           <p className="text-lg text-zinc-400">
-            A collection of my recent work in web and mobile design. Each project represents a unique challenge and creative solution.
+            Some of my Project
           </p>
         </div>
 
@@ -126,28 +126,9 @@ export default function PortfolioPage() {
           </div>
         )}
 
-        {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="inline-block bg-gradient-to-r from-red-500/10 via-red-600/10 to-red-700/10 rounded-3xl p-12 border border-white/10 backdrop-blur-sm">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Let's Work Together
-            </h2>
-            <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-              Have a project in mind? I'd love to hear about it and help bring your ideas to life.
-            </p>
-            <a 
-              href="https://wa.me/6281232896909"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-red-500/50 transition-all duration-300"
-            >
-              Get In Touch
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
+       </div>
 
       </div>
-    </div>
+    
   );
 }

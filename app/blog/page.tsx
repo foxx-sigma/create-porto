@@ -22,7 +22,7 @@ export default function BlogPage() {
           </h1>
           
           <p className="text-lg text-zinc-400">
-            Sharing knowledge about web development, design, and technology.
+            Just Article
           </p>
         </div>
 
