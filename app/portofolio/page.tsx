@@ -33,12 +33,12 @@ export default function PortfolioPage() {
           
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-              Featured Projects
+              Portofolio List
             </span>
           </h1>
           
           <p className="text-lg text-zinc-400">
-            Some of my Project
+            Some of my Project & Experience
           </p>
         </div>
 
@@ -125,10 +125,7 @@ export default function PortfolioPage() {
             <p className="text-zinc-400">Try selecting a different category</p>
           </div>
         )}
-
        </div>
-
       </div>
-    
   );
 }

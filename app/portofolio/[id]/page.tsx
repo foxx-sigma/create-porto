@@ -3,14 +3,21 @@ import Link from "next/link";
 import { arrayPorto } from '@/app/data/portofolio';
 import { notFound } from 'next/navigation';
 
-export default function ProjectDetailPage({ params }: { params: { id: string } }) {
-  const project = arrayPorto.find((p) => p.id === parseInt(params.id));
+export default async function ProjectDetailPage({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> 
+}) {
+  // Await params untuk Next.js 15
+  const { id } = await params;
+  const project = arrayPorto.find((p) => p.id === parseInt(id));
 
+  // Jika project tidak ditemukan, tampilkan 404
   if (!project) {
     notFound();
   }
 
-  // Get related projects (same category, excluding current)
+  // Ambil related projects (kategori sama, exclude current project)
   const relatedProjects = arrayPorto
     .filter(p => p.category === project.category && p.id !== project.id)
     .slice(0, 3);
@@ -33,6 +40,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
         {/* Project Header */}
         <div className="max-w-5xl mx-auto mb-16">
           <div className="mb-8">
+            
             {/* Category Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 backdrop-blur-sm rounded-full border border-red-400/30 mb-6">
               <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
@@ -98,11 +106,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             {/* Overview Section */}
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">Project Overview</h2>
-              <div className="prose prose-invert max-w-none">
+              <div className="space-y-4">
                 <p className="text-lg text-zinc-400 leading-relaxed">
                   {project.description}
                 </p>
-                <p className="text-lg text-zinc-400 leading-relaxed mt-4">
+                <p className="text-lg text-zinc-400 leading-relaxed">
                   This project showcases modern design principles and cutting-edge technology 
                   to deliver an exceptional user experience. Every detail was carefully crafted 
                   to ensure the best possible outcome.
@@ -152,6 +160,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">Key Features</h2>
               <div className="grid md:grid-cols-2 gap-6">
+                
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-4">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,6 +200,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <h3 className="text-xl font-bold text-white mb-2">Secure</h3>
                   <p className="text-zinc-400">Built with security best practices</p>
                 </div>
+
               </div>
             </div>
           </div>
@@ -198,7 +208,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
 
         {/* Related Projects */}
         {relatedProjects.length > 0 && (
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto mb-20">
             <h2 className="text-3xl font-bold text-white mb-8">Related Projects</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {relatedProjects.map((related) => (
@@ -229,7 +239,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
         )}
 
         {/* CTA Section */}
-        <div className="mt-20 text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-4xl mx-auto">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-500/10 via-red-600/10 to-red-700/10 border border-white/10 p-12 backdrop-blur-sm">
             
             {/* Decorative Elements */}

@@ -21,7 +21,7 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-                <span className="text-sm text-zinc-300">  Learning</span>
+                <span className="text-sm text-zinc-300">Learning</span>
               </div>
 
               {/* Heading */}
@@ -32,13 +32,9 @@ export default function Home() {
                     Aesar
                     
                   </span>
-                  <TypeAnimation
+                  <TypeAnimation  
                     sequence={[
                       'Fullstack Developer' ,
-                      2000,
-                      'Video Editor',
-                      2000,
-                      'Frontend Developer',
                       2000,
                       'Gamer',
                       2000,
@@ -46,7 +42,7 @@ export default function Home() {
                     wrapper="span"
                     cursor={true}
                     repeat={Infinity}
-                    style={{ display: 'inline-block', marginLeft: '1px', color: 'white' , }}
+                    style={{ display: 'inline-block', marginLeft: '1px', color: 'white' }}
                     className="
                     text-white
                     text-2xl
