@@ -1,0 +1,162 @@
+/* =========================================================
+   animations.css
+   CSS custom animations — DO NOT import in globals.css
+   Import langsung di komponen yang membutuhkannya
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Keyframes — Ambient / Looping
+   --------------------------------------------------------- */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-10px) rotate(0.5deg); }
+  66%       { transform: translateY(-5px) rotate(-0.5deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-16px) scale(1.02); }
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+  50%       { transform: scale(1.15) rotate(10deg); opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.2); }
+  50%       { box-shadow: 0 0 24px rgba(239, 68, 68, 0.5), 0 0 48px rgba(239, 68, 68, 0.2); }
+}
+
+/* ---------------------------------------------------------
+   Utility Classes — Animation
+   --------------------------------------------------------- */
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blobPulse 8s ease-in-out infinite;
+}
+
+.animate-blob-delayed {
+  animation: blobPulse 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.animate-border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   Utility Classes — will-change (dipakai sementara saat animasi)
+   --------------------------------------------------------- */
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+/* ---------------------------------------------------------
+   Visibility helpers untuk GSAP (initial state)
+   --------------------------------------------------------- */
+
+.gsap-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ---------------------------------------------------------
+   Prefers Reduced Motion — matikan semua animasi CSS
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow,
+  .animate-blob,
+  .animate-blob-delayed,
+  .animate-shimmer,
+  .animate-gradient,
+  .animate-border-glow {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
