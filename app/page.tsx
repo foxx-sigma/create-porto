@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import EraserReveal from "./components/EraserReveal/EraserReveal";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { useRef } from "react";
@@ -278,11 +277,13 @@ export default function Home() {
                 {/* Image Container */}
                 <div className="relative z-10 w-full max-w-md mx-auto animate-float-slow">
                   <div className="relative aspect-square rounded-3xl overflow-hidden ring-4 ring-white/10 shadow-2xl">
-                    {/* EraserReveal: scratch to reveal foto profil */}
-                    <EraserReveal
+                    {/* Foto Profil */}
+                    <Image
                       src="/Img/Fotoku.jpg"
                       alt="Aesar Sikma — Fullstack Developer"
-                      brushSize={75}
+                      fill
+                      unoptimized
+                      className="object-cover"
                     />
                   </div>
 

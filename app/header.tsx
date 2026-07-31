@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -75,8 +76,8 @@ const Header = () => {
               whileHover={{ scale: 1.08, rotate: 4 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 transition-shadow duration-300">
-                AS
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 transition-shadow duration-300">
+                <Image src="/Img/Fotoku.jpg" alt="Aesar" fill unoptimized className="object-cover" />
               </div>
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-black animate-pulse"></div>
             </motion.div>
