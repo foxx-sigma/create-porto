@@ -43,17 +43,7 @@ export default function PortofolioChooserClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-            </svg>
-            <span className="text-sm text-zinc-300">Portofolio</span>
-          </motion.div>
+
 
           <motion.h1
             className="text-5xl lg:text-6xl font-bold mb-6"
@@ -72,7 +62,7 @@ export default function PortofolioChooserClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.4, 0, 0.2, 1] }}
           >
-            Pilih kategori yang ingin kamu jelajahi — sertifikat pencapaian atau proyek produk digital saya.
+            Pilih kategori yang ingin kamu jelajahi
           </motion.p>
         </motion.div>
 

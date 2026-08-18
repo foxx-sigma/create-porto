@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -13,20 +14,45 @@ gsap.registerPlugin(ScrollTrigger);
 // TODO: isi nama, judul, dan bio singkat
 const heroData = {
   name: "Aesar", // TODO: ganti dengan nama lengkap jika perlu
-  title: "Front-End Developer", // TODO: sesuaikan judul/role
-  bio: "TODO: Tulis 1–2 kalimat bio singkat di sini. Contoh: seorang developer yang bersemangat membangun antarmuka web yang elegan dan responsif.",
+  title: "Junior Full-Stack Developer", // TODO: sesuaikan judul/role
+  bio: "Jago nyalahin CSS padahal salah sendiri, tapi tetep produktif.",
 };
 
 // TODO: tulis bio lengkap sebagai string paragraf-paragraf
 const fullBio: string[] = [
   // TODO: isi paragraf pertama bio lengkap
-  "TODO: Paragraf pertama — ceritakan latar belakang, motivasi, atau perjalanan kamu masuk ke dunia teknologi.",
+  "Perkenalkan, namaku Aesar, siswa RPL di SMK Telkom Malang yang awalnya cuma penasaran kenapa website bisa gerak-gerak sendiri, terus keterusan sampai sekarang bolak-balik ngoding frontend dan backend.",
   // TODO: isi paragraf kedua (bisa dihapus jika hanya 1 paragraf)
-  "TODO: Paragraf kedua — tambahkan hal lain yang ingin disampaikan, misalnya minat, nilai, atau visi kamu sebagai developer.",
+  "Perjalanan dimulai dari nyoba-nyoba HTML dan CSS yang berantakan, lanjut ke JavaScript yang bikin pusing tapi ketagihan, sampai akhirnya nyemplung ke Next.js dan NestJS buat bikin aplikasi web yang beneran jalan.",
+  
+  "Salah satu project yang paling berkesan: MockeT, website digitalisasi sekolah lengkap dengan sistem tiket online dan sistem refund. Dari sini belajar banyak hal yang nggak diajarin di kelas, seperti gimana caranya bikin alur tiket yang nggak bikin bingung user, sampai gimana handle logic refund yang ternyata jauh lebih ribet dari kelihatannya.",
+
+  "Di luar ngoding, tetap manusia biasa yang butuh kopi, kadang stuck di error yang ternyata cuma salah titik koma, dan masih terus belajar satu error demi satu error. Karena buatku, tiap bug yang berhasil dibenerin itu kayak level-up kecil menuju jadi developer yang lebih jago."
 ];
 
 // TODO: isi array ini dengan nama-nama teknologi/skill kamu
 const skills: string[] = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "TypeScript",
+  "NestJS",
+  "PostgreSQL",
+  "Prisma",
+  "MySQL",
+  "Shadcn/ui",
+  "Figma",
+  "Vite",
+  "Git",
+  "Github",
+  "Postman",
+  "Laravel",
+  "PHP",
+  
+  
   // Contoh format: "React", "TypeScript", "Next.js", "Tailwind CSS"
   // TODO: isi manual
 ];
@@ -40,6 +66,11 @@ interface TimelineItem {
 
 // TODO: isi array timeline dengan pengalaman, pendidikan, atau pencapaian
 const timeline: TimelineItem[] = [
+   { 
+    year: "2024 - Sekarang", 
+    title: "SMK Telkom Malang", 
+    description: "Siswa jurusan Rekayasa Perangkat Lunak (RPL). Mempelajari dasar pemrograman, pengembangan web frontend dan backend." 
+  },
   // Contoh format:
   // { year: "2024", title: "SMK Telkom Malang", description: "Mulai belajar web development." },
   // TODO: isi manual
@@ -76,30 +107,65 @@ export default function AboutClient() {
 
         {/* ── Hero / Headline ─────────────────────────────────────────────── */}
         <div ref={heroRef} className="mb-20">
-          {/* Category Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-            <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-sm text-zinc-300">About Me</span>
+
+          {/* 2-column grid: photo left, text right */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+            {/* ── Left: Profile Photo ── */}
+            <motion.div
+              className="relative flex justify-center lg:justify-start order-2 lg:order-1"
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="relative">
+                {/* Decorative blobs */}
+                <div className="absolute -top-6 -left-6 w-64 h-64 bg-red-500/25 rounded-full blur-3xl animate-blob pointer-events-none" />
+                <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-red-600/25 rounded-full blur-3xl animate-blob-delayed pointer-events-none" />
+
+                {/* Photo frame */}
+                <motion.div
+                  className="relative z-10 w-72 h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden ring-4 ring-white/10 shadow-2xl"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                >
+                  <Image
+                    src="/img/profile/tido.jpg"
+                    alt="Foto profil Aesar"
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    priority
+                  />
+                  {/* Gradient overlay bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </motion.div>
+
+              </div>
+            </motion.div>
+
+            {/* ── Right: Text Content ── */}
+            <div className="space-y-6 order-1 lg:order-2">
+             
+              
+
+              {/* Name & Title */}
+              <div>
+                <h1 className="text-5xl lg:text-6xl font-bold mb-3">
+                  <span className="text-white">{heroData.name}</span>
+                </h1>
+                <p className="text-xl lg:text-2xl font-semibold bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
+                  {heroData.title} {/* TODO: sesuaikan */}
+                </p>
+              </div>
+
+              {/* Short Bio */}
+              <p className="text-base text-zinc-300 leading-relaxed">
+                {heroData.bio} {/* TODO: isi bio singkat di heroData di atas */}
+              </p>
+            </div>
+
           </div>
-
-          {/* Name & Title */}
-          <h1 className="text-5xl lg:text-7xl font-bold mb-4">
-            <span className="text-white">{heroData.name}</span>
-          </h1>
-          <p className="text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent mb-6">
-            {heroData.title} {/* TODO: sesuaikan */}
-          </p>
-
-          {/* Short Bio */}
-          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
-            {heroData.bio} {/* TODO: isi bio singkat di heroData di atas */}
-          </p>
         </div>
 
         {/* ── Bio Lengkap ─────────────────────────────────────────────────── */}
@@ -112,7 +178,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">My Story</h2>
+            <h2 className="text-2xl font-bold text-white">Biografi</h2>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 space-y-4">
@@ -263,10 +329,7 @@ export default function AboutClient() {
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
           <div className="inline-block bg-gradient-to-r from-red-500/10 via-red-600/10 to-red-700/10 rounded-3xl p-10 border border-white/10 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold text-white mb-3">Let&apos;s Work Together</h2>
-            <p className="text-zinc-400 mb-6 max-w-sm mx-auto text-sm">
-              Punya proyek atau kolaborasi yang menarik? Jangan ragu untuk menghubungi saya.
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-3">Ada ide?</h2>
             <motion.a
               href="https://wa.me/6281232896909"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full text-sm"
@@ -274,7 +337,7 @@ export default function AboutClient() {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Hubungi Saya
+              Contact
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>

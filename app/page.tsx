@@ -32,7 +32,6 @@ export default function Home() {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const socialsRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const floatingCardRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const statsNumbersRef = useRef<HTMLHeadingElement[]>([]);
 
@@ -103,15 +102,6 @@ export default function Home() {
         },
         "-=0.8" // mulai bersamaan dengan desc
       )
-      .from(
-        floatingCardRef.current,
-        {
-          opacity: 0,
-          y: 20,
-          duration: 0.5,
-        },
-        "-=0.2"
-      );
 
     // --------------------------------------------------------
     // Stats Counter Animation (ScrollTrigger)
@@ -167,11 +157,8 @@ export default function Home() {
             {/* Left Side — Text Content */}
             <div className="space-y-8">
 
-              {/* Badge */}
-              <div ref={badgeRef} className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-                <span className="text-sm text-zinc-300">Learning</span>
-              </div>
+    
+              
 
               {/* Heading */}
               <div ref={headingRef} className="space-y-4">
@@ -201,7 +188,7 @@ export default function Home() {
                 ref={descRef}
                 className="text-lg text-zinc-300 leading-relaxed max-w-xl"
               >
-                I create digital experiences through code, specializing in web development.
+                Siswa RPL yang lagi ngasah skill fullstack lewat project.
               </p>
 
               {/* CTA Buttons */}
@@ -253,7 +240,7 @@ export default function Home() {
 
                 {/* Gmail */}
                 <motion.a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=EMAIL_KAMU@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=aesar.hernando.dev@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Send email via Gmail"
@@ -304,27 +291,6 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Floating Card */}
-                  <div
-                    ref={floatingCardRef}
-                    className="absolute -bottom-6 -left-6 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl"
-                  >
-                    <motion.div
-                      className="flex items-center gap-3"
-                      whileHover={{ scale: 1.04 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">Available</p>
-                        <p className="text-zinc-400 text-sm">For new projects</p>
-                      </div>
-                    </motion.div>
-                  </div>
                 </div>
               </div>
             </div>
