@@ -184,7 +184,7 @@ export default function Home() {
                     sequence={[
                       "Fullstack Developer",
                       2000,
-                      "Gamer",
+                      "SMK Telkom Malang Student",
                       2000,
                     ]}
                     wrapper="span"
