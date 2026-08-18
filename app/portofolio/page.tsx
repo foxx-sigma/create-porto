@@ -1,6 +1,5 @@
-import { arrayPorto } from "../data/portofolio";
-import PortfolioClient from "./PortofolioClient";
+import PortofolioChooserClient from "./PortofolioChooserClient";
 
 export default function PortfolioPage() {
-  return <PortfolioClient projects={arrayPorto} />;
+  return <PortofolioChooserClient />;
 }

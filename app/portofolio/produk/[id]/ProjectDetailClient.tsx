@@ -123,7 +123,7 @@ export default function ProjectDetailClient({
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Link
-            href="/portofolio"
+            href="/portofolio/produk"
             className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8 group"
           >
             <motion.svg
@@ -149,17 +149,39 @@ export default function ProjectDetailClient({
         >
           <div className="mb-8">
 
-            {/* Category Badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 backdrop-blur-sm rounded-full border border-red-400/30 mb-6"
-              variants={staggerItem}
-            >
-              <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-              </svg>
-              <span className="text-sm text-red-300">
-                {project.category === "mobile" ? "Mobile Application" : "Website Design"}
-              </span>
+            {/* Badges Row: Category + Type */}
+            <motion.div className="flex flex-wrap items-center gap-3 mb-6" variants={staggerItem}>
+              {/* Category Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 backdrop-blur-sm rounded-full border border-red-400/30">
+                <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                </svg>
+                <span className="text-sm text-red-300">
+                  {project.category === "mobile" ? "Mobile Application" : "Website Design"}
+                </span>
+              </div>
+
+              {/* Type Badge */}
+              <div
+                className={`inline-flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-full border text-sm font-medium ${
+                  project.type === "Produk"
+                    ? "bg-red-500/25 border-red-400/50 text-red-200"
+                    : project.type === "Development"
+                    ? "bg-red-500/15 border-red-400/30 text-red-300"
+                    : "bg-red-500/8 border-red-400/15 text-red-400/70"
+                }`}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    project.type === "Produk"
+                      ? "bg-red-300"
+                      : project.type === "Development"
+                      ? "bg-red-400"
+                      : "bg-red-500/50"
+                  }`}
+                />
+                {project.type}
+              </div>
             </motion.div>
 
             {/* Title */}
@@ -189,7 +211,7 @@ export default function ProjectDetailClient({
             {[
               { label: "Category", value: project.category === "mobile" ? "Mobile App" : "Website" },
               { label: "Year", value: "2024" },
-              { label: "Status", value: "Completed", showDot: true },
+              { label: "Status", value: project.status, showDot: true },
             ].map((info) => (
               <motion.div
                 key={info.label}
@@ -237,39 +259,38 @@ export default function ProjectDetailClient({
               <h2 className="text-3xl font-bold text-white mb-6">Project Overview</h2>
               <div className="space-y-4">
                 <p className="text-lg text-zinc-400 leading-relaxed">{project.description}</p>
-                <p className="text-lg text-zinc-400 leading-relaxed">
-                  This project showcases modern design principles and cutting-edge technology
-                  to deliver an exceptional user experience. Every detail was carefully crafted
-                  to ensure the best possible outcome.
-                </p>
+                {project.overview && (
+                  <p className="text-lg text-zinc-400 leading-relaxed">{project.overview}</p>
+                )}
               </div>
             </div>
 
             {/* Technologies Section */}
             <div ref={techRef}>
               <h2 className="text-3xl font-bold text-white mb-6">Technologies Used</h2>
-              <motion.div
-                className="flex flex-wrap gap-3"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                variants={staggerContainer}
-              >
-                {(project.category === "mobile"
-                  ? ["React Native", "Figma", "Adobe XD", "UI/UX Design"]
-                  : ["Next.js", "React", "Tailwind CSS", "TypeScript"]
-                ).map((tech) => (
-                  <motion.span
-                    key={tech}
-                    className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-zinc-300 cursor-default"
-                    variants={staggerItem}
-                    whileHover={{ scale: 1.07, borderColor: "rgba(239,68,68,0.4)", color: "#fff" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </motion.div>
+              {project.tools.length > 0 ? (
+                <motion.div
+                  className="flex flex-wrap gap-3"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-60px" }}
+                  variants={staggerContainer}
+                >
+                  {project.tools.map((tech) => (
+                    <motion.span
+                      key={tech}
+                      className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-zinc-300 cursor-default"
+                      variants={staggerItem}
+                      whileHover={{ scale: 1.07, borderColor: "rgba(239,68,68,0.4)", color: "#fff" }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              ) : (
+                <p className="text-zinc-500 text-sm italic">Tools belum ditambahkan.</p>
+              )}
             </div>
 
             {/* Key Features Section */}
@@ -328,7 +349,7 @@ export default function ProjectDetailClient({
             <div className="grid md:grid-cols-3 gap-8">
               {relatedProjects.map((related) => (
                 <Link
-                  href={`/portofolio/${related.id}`}
+                  href={`/portofolio/produk/${related.id}`}
                   key={related.id}
                   className="group related-card"
                 >
@@ -398,7 +419,7 @@ export default function ProjectDetailClient({
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Link
-                    href="/portofolio"
+                    href="/portofolio/produk"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
                   >
                     View All Projects

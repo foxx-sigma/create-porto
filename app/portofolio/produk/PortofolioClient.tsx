@@ -7,8 +7,8 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
-import { PortofolioItem } from "../data/portofolio";
-import "../animations.css";
+import { PortofolioItem } from "../../data/portofolio";
+import "../../animations.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,7 +122,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
               >
-                <Link href={`/portofolio/${project.id}`} className="group block">
+                <Link href={`/portofolio/produk/${project.id}`} className="group block">
                   <motion.div
                     className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors duration-300 hover:shadow-2xl hover:shadow-red-500/10"
                     whileHover={{ y: -8, scale: 1.01 }}
@@ -151,10 +151,21 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                         </div>
                       </div>
 
-                      {/* Category Badge */}
-                      <div className="absolute top-4 right-4">
+                      {/* Badges: Category + Type */}
+                      <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
                         <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/30">
                           {project.category === "mobile" ? "Mobile App" : "Website"}
+                        </span>
+                        <span
+                          className={`px-3 py-1 backdrop-blur-md rounded-full text-xs font-medium border ${
+                            project.type === "Produk"
+                              ? "bg-red-500/25 border-red-400/50 text-red-200"
+                              : project.type === "Development"
+                              ? "bg-red-500/15 border-red-400/30 text-red-300"
+                              : "bg-red-500/8 border-red-400/15 text-red-400/70"
+                          }`}
+                        >
+                          {project.type}
                         </span>
                       </div>
                     </div>
