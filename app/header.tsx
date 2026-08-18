@@ -19,7 +19,7 @@ const Header = () => {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/portofolio", label: "Portfolio" },
-    { href: "/blog", label: "Blog" },
+    { href: "/about", label: "About Me" },
   ];
 
   // GSAP: entrance animation + scroll shrink
