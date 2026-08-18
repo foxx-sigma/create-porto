@@ -10,7 +10,7 @@ export const arraySertifikasi: CertificateItem[] = [
   {
     id:1,
     name:"Spec-Driven Development with Kiro",
-    image: "/sertif/Sertif Fullstack.jpeg",
+    image: "/img/sertifikat/Sertif Fullstack.jpeg",
     issuer:"SMK Telkom Malang",
     date:"Juni 2026"  ,
   }

@@ -279,7 +279,7 @@ export default function Home() {
                   <div className="relative aspect-square rounded-3xl overflow-hidden ring-4 ring-white/10 shadow-2xl">
                     {/* Foto Profil */}
                     <Image
-                      src="/Img/Fotoku.jpg"
+                      src="/img/profile/fotoku.jpg"
                       alt="Aesar Sikma — Fullstack Developer"
                       fill
                       unoptimized
