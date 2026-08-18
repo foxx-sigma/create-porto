@@ -63,22 +63,12 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
 
         {/* Header Section */}
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-            <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-            </svg>
-            <span className="text-sm text-zinc-300">My Work</span>
-          </div>
 
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-              Featured Projects
+              Daftar Project
             </span>
           </h1>
-
-          <p className="text-lg text-zinc-400">
-            A collection of my recent work in web and mobile design. Each project represents a unique challenge and creative solution.
-          </p>
         </div>
 
         {/* Category Filter — Motion layout animation */}
@@ -215,24 +205,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <div className="inline-block bg-gradient-to-r from-red-500/10 via-red-600/10 to-red-700/10 rounded-3xl p-12 border border-white/10 backdrop-blur-sm">
-            <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Work Together</h2>
-            <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-              Have a project in mind? I&apos;d love to hear about it and help bring your ideas to life.
-            </p>
-            <motion.a
-              href="https://wa.me/6281232896909"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(239,68,68,0.5)" }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Get In Touch
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </motion.a>
-          </div>
+          
         </motion.div>
 
       </div>

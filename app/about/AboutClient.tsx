@@ -328,21 +328,6 @@ export default function AboutClient() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <div className="inline-block bg-gradient-to-r from-red-500/10 via-red-600/10 to-red-700/10 rounded-3xl p-10 border border-white/10 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold text-white mb-3">Ada ide?</h2>
-            <motion.a
-              href="https://wa.me/6281232896909"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full text-sm"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(239,68,68,0.5)" }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Contact
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </motion.a>
-          </div>
         </motion.div>
 
       </div>

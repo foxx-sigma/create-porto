@@ -380,55 +380,6 @@ export default function ProjectDetailClient({
           </div>
         )}
 
-        {/* CTA Section */}
-        <div ref={ctaRef} className="text-center max-w-4xl mx-auto">
-          <motion.div
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-500/10 via-red-600/10 to-red-700/10 border border-white/10 p-12 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-          >
-            {/* Decorative Elements */}
-            <div className="absolute -top-20 -left-20 w-48 h-48 bg-red-500/30 rounded-full blur-3xl animate-blob"></div>
-            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-red-600/30 rounded-full blur-3xl animate-blob-delayed"></div>
-
-            <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Interested in Working Together?
-              </h2>
-              <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-                Let&apos;s discuss your next project and bring your ideas to life.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.a
-                  href="https://wa.me/6281232896909"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(239,68,68,0.5)" }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  Contact Me
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </motion.a>
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Link
-                    href="/portofolio/produk"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors duration-300"
-                  >
-                    View All Projects
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
       </div>
     </div>

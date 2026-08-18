@@ -24,22 +24,14 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-            <svg className="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span className="text-sm text-zinc-300">Pencapaian Saya</span>
-          </div>
-
+          
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
               Sertifikasi
             </span>
           </h1>
 
-          <p className="text-lg text-zinc-400">
-            Kumpulan sertifikat dan pencapaian yang telah saya raih dari berbagai program pelatihan dan kompetisi.
-          </p>
+         
         </motion.div>
 
         {/* Certificate Grid / Empty State */}
