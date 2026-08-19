@@ -284,7 +284,7 @@ export default function Home() {
                     {/* Foto Profil */}
                     <Image
                       src="/img/profile/fotoku.jpg"
-                      alt="Aesar Sikma — Fullstack Developer"
+                      alt="Aesar — Fullstack Developer"
                       fill
                       unoptimized
                       className="object-cover"

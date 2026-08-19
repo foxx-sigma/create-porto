@@ -12,8 +12,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Portofolio | Aesar Sikma",
-  description: "Portofolio Aesar Sikma — Fullstack Developer",
+  title: "Portofolio | Aesar",
+  description: "Portofolio Aesar — Fullstack Developer",
 };
 
 export default function RootLayout({

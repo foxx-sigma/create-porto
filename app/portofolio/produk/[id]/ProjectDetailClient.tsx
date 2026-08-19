@@ -127,14 +127,6 @@ export default function ProjectDetailClient({
         >
           <div className="mb-8">
 
-            {/* Status Badge */}
-            <motion.div className="flex flex-wrap items-center gap-3 mb-6" variants={staggerItem}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm text-zinc-300">{project.status}</span>
-              </div>
-            </motion.div>
-
             {/* Title */}
             <motion.h1
               className="text-4xl lg:text-6xl font-bold mb-6"
@@ -160,7 +152,6 @@ export default function ProjectDetailClient({
             variants={staggerContainer}
           >
             {[
-              { label: "Year", value: "2024" },
               { label: "Status", value: project.status, showDot: true },
             ].map((info) => (
               <motion.div
