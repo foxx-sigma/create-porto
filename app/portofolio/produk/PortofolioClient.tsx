@@ -102,20 +102,6 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                           </div>
                         </div>
                       </div>
-
-                      {/* Tool badges (top 2 tools) */}
-                      {project.tools.length > 0 && (
-                        <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
-                          {project.tools.slice(0, 2).map((tool) => (
-                            <span
-                              key={tool}
-                              className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/30"
-                            >
-                              {tool}
-                            </span>
-                          ))}
-                        </div>
-                      )}
                     </div>
 
                     {/* Content */}

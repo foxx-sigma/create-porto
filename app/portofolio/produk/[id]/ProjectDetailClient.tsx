@@ -258,10 +258,8 @@ export default function ProjectDetailClient({
                       transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
                       whileHover={{ y: -5, borderColor: "rgba(239,68,68,0.3)" }}
                     >
-                      <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-4">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
-                        </svg>
+                      <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-4 text-white font-bold text-sm">
+                        {i + 1}
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
                       <p className="text-zinc-400">{feature.description}</p>
