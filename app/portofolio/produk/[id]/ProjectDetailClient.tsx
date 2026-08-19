@@ -114,7 +114,7 @@ export default function ProjectDetailClient({
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </motion.svg>
-            <span>Back to Portfolio</span>
+            <span>← Kembali</span>
           </Link>
         </motion.div>
 
@@ -146,13 +146,13 @@ export default function ProjectDetailClient({
             </motion.p>
           </div>
 
-          {/* Project Info Grid — Year & Status only */}
+          {/* Project Info Grid — Peran Saya */}
           <motion.div
             className="grid md:grid-cols-2 gap-6 mb-12"
             variants={staggerContainer}
           >
             {[
-              { label: "Status", value: project.status, showDot: true },
+              { label: "Peran Saya", value: project.role },
             ].map((info) => (
               <motion.div
                 key={info.label}
@@ -162,12 +162,9 @@ export default function ProjectDetailClient({
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <h3 className="text-sm text-zinc-500 mb-2">{info.label}</h3>
-                <div className="flex items-center gap-2">
-                  {info.showDot && (
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  )}
-                  <p className="text-white font-semibold">{info.value}</p>
-                </div>
+                <p className={`font-semibold ${info.value ? "text-white" : "text-zinc-600 italic"}`}>
+                  {info.value || "—"}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -197,7 +194,7 @@ export default function ProjectDetailClient({
 
             {/* Overview Section */}
             <div ref={overviewRef}>
-              <h2 className="text-3xl font-bold text-white mb-6">Project Overview</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">Tentang Project</h2>
               <div className="space-y-4">
                 <p className="text-lg text-zinc-400 leading-relaxed">{project.description}</p>
                 {project.overview && (
@@ -208,7 +205,7 @@ export default function ProjectDetailClient({
 
             {/* Technologies Section */}
             <div ref={techRef}>
-              <h2 className="text-3xl font-bold text-white mb-6">Technologies Used</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">Teknologi yang Dipakai</h2>
               {project.tools.length > 0 ? (
                 <motion.div
                   className="flex flex-wrap gap-3"
@@ -237,7 +234,7 @@ export default function ProjectDetailClient({
             {/* Key Features Section */}
             {project.features.length > 0 && (
               <div ref={featuresRef}>
-                <h2 className="text-3xl font-bold text-white mb-6">Key Features</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">Fitur Utama</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {project.features.map((feature, i) => (
                     <motion.div

@@ -95,7 +95,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute bottom-4 left-4 right-4">
                           <div className="flex items-center gap-2 text-white">
-                            <span className="text-sm font-medium">View Project</span>
+                            <span className="text-sm font-medium">Lihat Project</span>
                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>

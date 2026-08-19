@@ -207,7 +207,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">Skills &amp; Technologies</h2>
+            <h2 className="text-2xl font-bold text-white">Skill &amp; Teknologi</h2>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8">
@@ -254,7 +254,7 @@ export default function AboutClient() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-red-600" />
-            <h2 className="text-2xl font-bold text-white">Experience &amp; Education</h2>
+            <h2 className="text-2xl font-bold text-white">Pengalaman &amp; Pendidikan</h2>
           </div>
 
           <AnimatePresence mode="wait">

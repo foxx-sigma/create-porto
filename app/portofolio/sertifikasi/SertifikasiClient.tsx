@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CertificateItem } from "../../data/sertifikasi";
 import "../../animations.css";
@@ -12,6 +12,18 @@ interface SertifikasiClientProps {
 
 export default function SertifikasiClient({ certificates }: SertifikasiClientProps) {
   const [selected, setSelected] = useState<CertificateItem | null>(null);
+
+  // Lock body scroll saat lightbox terbuka agar navbar tidak bocor di mobile
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
 
   return (
     <div className="min-h-screen py-20">
@@ -112,7 +124,7 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

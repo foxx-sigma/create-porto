@@ -20,7 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${jakarta.variable} font-sans antialiased`}>
         <LenisProvider>
           {/* Wrapper Background */}

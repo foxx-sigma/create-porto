@@ -17,10 +17,10 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/portofolio/produk", label: "Portfolio" },
+    { href: "/", label: "Beranda" },
+    { href: "/portofolio/produk", label: "Portofolio" },
     { href: "/portofolio/sertifikasi", label: "Sertifikasi" },
-    { href: "/about", label: "About Me" },
+    { href: "/about", label: "Tentang Saya" },
   ];
 
   // Active: exact match untuk "/", startsWith untuk path lain
@@ -117,8 +117,27 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Unduh CV */}
+            <motion.a
+              href="/cv/aesar-cv.pdf"
+              download="Aesar-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-full border border-white/20 hover:border-white/40 transition-colors duration-200"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              aria-label="Unduh CV"
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              <span>CV</span>
+            </motion.a>
+
+            {/* Hubungi Saya */}
             <motion.a
               href="https://wa.me/6281232896909"
               className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full"
@@ -129,7 +148,7 @@ const Header = () => {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Contact Me
+              Hubungi Saya
             </motion.a>
           </div>
 
@@ -205,16 +224,39 @@ const Header = () => {
                     </Link>
                   </motion.li>
                 ))}
+
+                {/* Unduh CV — Mobile */}
                 <motion.li
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.06 }}
                 >
                   <a
+                    href="/cv/aesar-cv.pdf"
+                    download="Aesar-CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 px-6 py-3 bg-white/5 text-zinc-300 hover:bg-white/10 font-medium rounded-xl transition-all duration-300"
+                  >
+                    <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                    </svg>
+                    Unduh CV
+                  </a>
+                </motion.li>
+
+                {/* Hubungi Saya — Mobile */}
+                <motion.li
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navItems.length + 1) * 0.06 }}
+                >
+                  <a
                     href="https://wa.me/6281232896909"
                     className="block px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-xl text-center"
                   >
-                    Contact Me
+                    Hubungi Saya
                   </a>
                 </motion.li>
               </ul>
