@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,22 +16,10 @@ interface PortfolioClientProps {
   projects: PortofolioItem[];
 }
 
-const categories = [
-  { id: "all", label: "All Projects" },
-  { id: "mobile", label: "Mobile Apps" },
-  { id: "website", label: "Websites" },
-];
-
 export default function PortfolioClient({ projects }: PortfolioClientProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-
-  const filteredPortfolio =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((item) => item.category === activeCategory);
 
   // GSAP: header entrance + card stagger
   useGSAP(() => {
@@ -71,37 +59,11 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
           </h1>
         </div>
 
-        {/* Category Filter — Motion layout animation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`relative px-6 py-3 rounded-full font-medium transition-colors duration-200 ${
-                activeCategory === category.id
-                  ? "text-white"
-                  : "bg-white/5 backdrop-blur-sm text-zinc-300 border border-white/10 hover:text-white hover:border-white/20"
-              }`}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              {/* Active background pill dengan layout animation */}
-              {activeCategory === category.id && (
-                <motion.span
-                  layoutId="category-active"
-                  className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg shadow-red-500/30"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{category.label}</span>
-            </motion.button>
-          ))}
-        </div>
 
         {/* Portfolio Grid */}
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
-            {filteredPortfolio.map((project) => (
+            {projects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -141,23 +103,19 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                         </div>
                       </div>
 
-                      {/* Badges: Category + Type */}
-                      <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
-                        <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/30">
-                          {project.category === "mobile" ? "Mobile App" : "Website"}
-                        </span>
-                        <span
-                          className={`px-3 py-1 backdrop-blur-md rounded-full text-xs font-medium border ${
-                            project.type === "Produk"
-                              ? "bg-red-500/25 border-red-400/50 text-red-200"
-                              : project.type === "Development"
-                              ? "bg-red-500/15 border-red-400/30 text-red-300"
-                              : "bg-red-500/8 border-red-400/15 text-red-400/70"
-                          }`}
-                        >
-                          {project.type}
-                        </span>
-                      </div>
+                      {/* Tool badges (top 2 tools) */}
+                      {project.tools.length > 0 && (
+                        <div className="absolute top-4 right-4 flex flex-col items-end gap-1.5">
+                          {project.tools.slice(0, 2).map((tool) => (
+                            <span
+                              key={tool}
+                              className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium text-white border border-white/30"
+                            >
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     {/* Content */}
@@ -176,26 +134,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
           </AnimatePresence>
         </div>
 
-        {/* Empty State */}
-        <AnimatePresence>
-          {filteredPortfolio.length === 0 && (
-            <motion.div
-              className="text-center py-20"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-10 h-10 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">No projects found</h3>
-              <p className="text-zinc-400">Try selecting a different category</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
 
         {/* CTA Section */}
         <motion.div

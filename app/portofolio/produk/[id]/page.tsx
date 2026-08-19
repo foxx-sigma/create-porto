@@ -14,11 +14,7 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
-  const relatedProjects = arrayPorto
-    .filter((p) => p.category === project.category && p.id !== project.id)
-    .slice(0, 3);
-
   return (
-    <ProjectDetailClient project={project} relatedProjects={relatedProjects} />
+    <ProjectDetailClient project={project} />
   );
 }

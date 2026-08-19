@@ -199,7 +199,7 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Link
-                    href="/portofolio"
+                    href="/portofolio/produk"
                     className="group px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-colors duration-300 flex items-center gap-2"
                   >
                     View My Porto

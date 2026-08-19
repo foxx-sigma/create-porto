@@ -18,9 +18,14 @@ const Header = () => {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/portofolio", label: "Portfolio" },
+    { href: "/portofolio/produk", label: "Portfolio" },
+    { href: "/portofolio/sertifikasi", label: "Sertifikasi" },
     { href: "/about", label: "About Me" },
   ];
+
+  // Active: exact match untuk "/", startsWith untuk path lain
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   // GSAP: entrance animation + scroll shrink
   useGSAP(() => {
@@ -93,13 +98,13 @@ const Header = () => {
                 <Link
                   href={item.href}
                   className={`relative px-6 py-2.5 rounded-full font-medium transition-colors duration-200 ${
-                    pathname === item.href
+                    isActive(item.href)
                       ? "text-black"
                       : "text-zinc-300 hover:text-white"
                   }`}
                 >
                   {/* Active pill background */}
-                  {pathname === item.href && (
+                  {isActive(item.href) && (
                     <motion.span
                       layoutId="nav-active-pill"
                       className="absolute inset-0 bg-white rounded-full shadow-lg"
@@ -191,7 +196,7 @@ const Header = () => {
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
                       className={`block px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                        pathname === item.href
+                        isActive(item.href)
                           ? "bg-white text-black"
                           : "bg-white/5 text-zinc-300 hover:bg-white/10"
                       }`}
