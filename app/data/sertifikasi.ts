@@ -52,7 +52,7 @@ export const arraySertifikasi: CertificateItem[] = [
   {
     id: 7,
     name: "Gold Medal Islamic Religious Education Olympiad",
-    image: "/img/sertifikat/Olimpiade.jpeg",
+    image: "/img/sertifikat/olimpiade.jpeg",
     issuer: "Olimpiade Indonesia & Liga Olimpiade",
     date: "October 2025",
   }

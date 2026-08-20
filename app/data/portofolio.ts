@@ -112,9 +112,25 @@ export const arrayPorto: PortofolioItem[] = [
     repoUrl: "https://github.com/foxx-sigma/pdam-app",        
     features: [
       {
-        title: "",
-        description: "",
+        title: "Autentikasi dan Manajemen Role",
+        description: "Fitur ini mengatur akses pengguna ke seluruh sistem menggunakan JWT-based authentication dengan dua tingkatan role, admin dan user.",
       },
+      {
+        title: "Export Laporan",
+        description: "Fitur ini memudahkan admin memantau seluruh transaksi yang terjadi di platform dengan menyediakan opsi ekspor data pesanan ke format CSV maupun PDF."
+      },
+      {
+        title: "Verifikasi Pembayaran",
+        description: "Menangani proses konfirmasi pembayaran atas pesanan yang masuk, memastikan status transaksi hanya berubah menjadi terverifikasi setelah melalui pengecekan yang sesuai di backend."
+      },
+      {
+        title: "Dashboard Manajemen User",
+        description: "Dashboard khusus admin untuk mengatur user.",
+      },
+      {
+        title: "Dashboard Pelanggan",
+        description: "Dashboard khusus pelanggan untuk melihat tagihan dan pembayaran.",
+      }
     ],             
   }
 ]
