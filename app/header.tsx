@@ -137,19 +137,6 @@ const Header = () => {
               <span>CV</span>
             </motion.a>
 
-            {/* Hubungi Saya */}
-            <motion.a
-              href="https://wa.me/6281232896909"
-              className="px-6 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(239,68,68,0.5)",
-              }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Hubungi Saya
-            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -246,19 +233,6 @@ const Header = () => {
                   </a>
                 </motion.li>
 
-                {/* Hubungi Saya — Mobile */}
-                <motion.li
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (navItems.length + 1) * 0.06 }}
-                >
-                  <a
-                    href="https://wa.me/6281232896909"
-                    className="block px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-xl text-center"
-                  >
-                    Hubungi Saya
-                  </a>
-                </motion.li>
               </ul>
             </motion.div>
           )}
