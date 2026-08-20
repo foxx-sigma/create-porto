@@ -48,6 +48,13 @@ export const arraySertifikasi: CertificateItem[] = [
     image:"/img/sertifikat/5juz.png",
     issuer:"SMP Modern Al-rifa'ie",
     date:"School Year 2022/2023"  ,
+  },
+  {
+    id: 7,
+    name: "Gold Medal Islamic Religious Education Olympiad",
+    image: "/img/sertifikat/Olimpiade.jpeg",
+    issuer: "Olimpiade Indonesia & Liga Olimpiade",
+    date: "October 2025",
   }
 
   // TODO: isi manual — tambahkan data sertifikat di sini, contoh:
