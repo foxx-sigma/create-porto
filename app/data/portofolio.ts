@@ -100,7 +100,7 @@ export const arrayPorto: PortofolioItem[] = [
   {
     id: 4,
     name: "PDAM Management System",
-    image: "/img/produk/PDAM.png",
+    image: "/img/produk/pdam.png",
     description: "Sistem manajemen untuk PDAM yang dirancang untuk membantu dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",
     role: "Frontend Developer",               
     overview: "Sistem manajemen yang dirancang untuk membantu PDAM dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",             
