@@ -12,6 +12,7 @@ export interface PortofolioItem {
   overview: string;       // paragraf overview asli per project
   tools: string[];        // daftar tools/tech stack asli per project
   features: ProjectFeature[]; // isi manual per project
+  repoUrl?: string;       // URL repo GitHub (opsional — isi manual, kosongkan jika belum ada)
 }
 
 
@@ -24,6 +25,7 @@ export const arrayPorto: PortofolioItem[] = [
     role: "Frontend Developer",               
     overview: "Platform ticketing kegiatan sekolah yang dirancang untuk mempermudah proses pemesanan tiket, pembayaran, dan refund dalam satu sistem terintegrasi. MockeT menyediakan antarmuka yang responsif dan intuitif untuk membantu siswa, perusahaan, serta pengelola kegiatan dalam mengelola proses ticketing secara lebih efisien.",             
     tools: ["Laravel", "MySQL", "NextJS", "Tailwind CSS", "Shadcn/UI"],                  
+    repoUrl: "https://github.com/foxx-sigma/moket1", 
     features: [
       {
         title: "Alur Pembelian Tiket",
@@ -50,7 +52,8 @@ export const arrayPorto: PortofolioItem[] = [
     description: "Platform web responsif yang menyajikan rekomendasi kuliner di wilayah Malang, dilengkapi dengan integrasi peta interaktif lokasi restoran dan manajemen sistem pemesanan",
     role: "Backend Developer",               
     overview: "Platform rekomendasi dan pemesanan kuliner lokal yang dikembangkan oleh tim saya dengan fokus utama di sisi backend, dirancang untuk membantu pengguna menemukan tempat makan di sekitar mereka sekaligus melakukan pemesanan langsung dari platform tanpa harus berpindah aplikasi. Proyek ini dibangun menggunakan NestJS sebagai framework utama, dipadukan dengan Prisma ORM dan Supabase (PostgreSQL) sebagai database, serta sistem autentikasi berbasis JWT yang membedakan akses antara pengguna biasa dan admin.",             
-    tools: ["NestJs","Supabase (PostgreSQL)","JWT","PDFKit","Railway", "Git/GitHub","Swagger","Postman"],                
+    tools: ["NestJs","Supabase (PostgreSQL)","JWT","PDFKit","Railway", "Git/GitHub","Swagger","Postman"],
+    repoUrl: "https://github.com/foxx-sigma/kulinerukl_backend",               
     features: [
       {
         title: "Autentikasi dan Manajemen Role",
@@ -81,7 +84,8 @@ export const arrayPorto: PortofolioItem[] = [
     description: "Portal portofolio digital institusi (Teaching Factory) yang dirancang untuk memamerkan proyek siswa kepada mitra industri dan perusahaan.",
     role: "Frontend Developer",              
     overview: "Platform yang dikembangkan untuk menjembatani siswa dengan pihak industri dan mitra eksternal. Melalui platform ini, siswa dapat mengunggah proyek yang sudah mereka selesaikan, guru dari departemen terkait meninjau dan menyetujui proyek tersebut sebelum ditampilkan secara publik, dan pihak industri yang tertarik dengan suatu proyek bisa langsung menghubungi guru penanggung jawab sebagai kontak resmi. Saya membangun platform ini menggunakan Next.js 14, dengan fokus utama pada sistem autentikasi, alur onboarding pengguna, serta redesign tampilan menggunakan shadcn/ui dan palet warna institusional yang disesuaikan dengan identitas sekolah.",             
-    tools: ["NextJS 14", "Shadcn/UI", "Tailwind CSS", "Git/GitHub"],                
+    tools: ["NextJS 14", "Shadcn/UI", "Tailwind CSS", "Git/GitHub"],
+    repoUrl: "https://github.com/foxx-sigma/dev-frontend-tefa-rev-main",                
     features: [
       {
         title: "Role-Based Routing",
@@ -104,7 +108,8 @@ export const arrayPorto: PortofolioItem[] = [
     description: "Sistem manajemen untuk PDAM yang dirancang untuk membantu dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",
     role: "Frontend Developer",               
     overview: "Sistem manajemen yang dirancang untuk membantu PDAM dalam pengelolaan data pelanggan, tagihan, dan pembayaran.",             
-    tools: ["NextJS 14", "Tailwind CSS", "Git/GitHub"],                
+    tools: ["NextJS 14", "Tailwind CSS", "Git/GitHub"],
+    repoUrl: "https://github.com/foxx-sigma/pdam-app",        
     features: [
       {
         title: "",
