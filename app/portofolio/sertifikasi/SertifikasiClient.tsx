@@ -124,7 +124,8 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto"
+            style={{ paddingTop: "calc(var(--navbar-height, 64px) + 16px)", paddingBottom: "24px", paddingLeft: "16px", paddingRight: "16px" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -146,7 +147,7 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
               {/* Close Button */}
               <button
                 onClick={() => setSelected(null)}
-                className="absolute -top-4 -right-4 z-20 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-colors duration-200"
+                className="absolute -top-4 -right-0 sm:-right-4 z-20 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-colors duration-200"
                 aria-label="Tutup"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

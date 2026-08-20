@@ -11,10 +11,9 @@ import "../animations.css";
 gsap.registerPlugin(ScrollTrigger);
 
 // ── Data Placeholders ─────────────────────────────────────────────────────────
-// TODO: isi nama, judul, dan bio singkat
 const heroData = {
-  name: "Aesar", // TODO: ganti dengan nama lengkap jika perlu
-  title: "Junior Full-Stack Developer", // TODO: sesuaikan judul/role
+  name: "Aesar", 
+  title: "Full-Stack Developer", 
   bio: "Jago nyalahin CSS padahal salah sendiri, tapi tetep produktif.",
 };
 
