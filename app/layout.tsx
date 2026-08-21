@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./header";
 import LenisProvider from "./providers/LenisProvider";
+import ConstellationBackground from "./components/ConstellationBackground";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,21 +27,10 @@ export default function RootLayout({
           {/* Wrapper Background */}
           <div className="relative min-h-screen w-screen overflow-hidden">
 
-            {/* Background Video */}
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover -z-10 fixed"
-            >
-              <source src="/video/bg-madara.mp4" type="video/mp4" />
-            </video>
+            {/* Constellation Background — rendered first, z-index 0 via fixed canvas */}
+            <ConstellationBackground />
 
-            {/* Overlay gelap */}
-            <div className="absolute inset-0 bg-black/50 -z-10"></div>
-
-            {/* Konten */}
+            {/* Konten — z-index di atas canvas */}
             <Header />
             <main className="relative z-10">
               {children}

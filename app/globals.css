@@ -4,7 +4,8 @@
 :root {
   --background: #aaa4a4;
   --foreground: #0c0c0c;
-  --navbar-height: 72px; /* Tinggi navbar (py-4 + konten ~40px) */
+  --navbar-height: 72px;
+  /* Tinggi navbar (py-4 + konten ~40px) */
   /* font-family: 'Plus Jakarta Sans', sans-serif; */
 }
 
@@ -26,6 +27,7 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
 }
+
 * {
   font-family: var(--font-jakarta), system-ui, sans-serif;
 }

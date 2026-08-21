@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { useRef } from "react";
@@ -9,6 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
 import "./animations.css";
+import TiltImage from "./components/TiltImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -256,17 +256,11 @@ export default function Home() {
 
                 {/* Image Container */}
                 <div className="relative z-10 w-full max-w-md mx-auto animate-float-slow">
-                  <div className="relative aspect-square rounded-3xl overflow-hidden ring-4 ring-white/10 shadow-2xl">
-                    {/* Foto Profil */}
-                    <Image
-                      src="/img/profile/fotoku.jpg"
-                      alt="Foto Aesar — Fullstack Developer"
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  </div>
-
+                  {/* TiltImage — tilt 3D interaktif, GSAP entrance via imageRef parent */}
+                  <TiltImage
+                    src="/img/profile/fotoku.jpg"
+                    alt="Foto Aesar — Fullstack Developer"
+                  />
                 </div>
               </div>
             </div>
