@@ -34,6 +34,7 @@ const skills: string[] = [
   "HTML",
   "CSS",
   "JavaScript",
+  "Java",
   "React",
   "Next.js",
   "Tailwind CSS",
@@ -43,13 +44,15 @@ const skills: string[] = [
   "Prisma",
   "MySQL",
   "Shadcn/ui",
-  "Figma",
-  "Vite",
   "Git",
   "Github",
   "Postman",
-  "Laravel",
   "PHP",
+  "Ubuntu Server",
+  "Vercel",
+  "Railway",
+  "Supabase"
+
 
 
   // Contoh format: "React", "TypeScript", "Next.js", "Tailwind CSS"
