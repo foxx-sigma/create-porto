@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, type Variants } from "motion/react";
 import { PortofolioItem } from "@/app/data/portofolio";
+import ImageWithFallback from "@/app/components/ImageWithFallback";
 import "@/app/animations.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -173,12 +173,12 @@ export default function ProjectDetailClient({
         {/* Main Image — dengan parallax via GSAP */}
         <div className="max-w-6xl mx-auto mb-16" ref={mainImageRef}>
           <motion.div
-            className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+            className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900"
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
           >
-            <Image
+            <ImageWithFallback
               src={project.image}
               alt={project.name}
               fill

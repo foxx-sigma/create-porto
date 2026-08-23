@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
 import { PortofolioItem } from "../../data/portofolio";
+import ImageWithFallback from "../../components/ImageWithFallback";
 import "../../animations.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,7 +67,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
               <motion.div
                 key={project.id}
                 layout
-                className="portfolio-card"
+                className="portfolio-card h-full"
                 initial={{ opacity: 0, y: 30, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.92, y: -10 }}
@@ -75,16 +75,16 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
               >
                 <motion.div
-                  className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors duration-300 hover:shadow-2xl hover:shadow-red-500/10 flex flex-col"
+                  className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors duration-300 hover:shadow-2xl hover:shadow-red-500/10 flex flex-col h-full"
                   whileHover={{ y: -8, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   {/* Clickable upper area: Image + Content */}
-                  <Link href={`/portofolio/produk/${project.id}`} className="block flex-1">
+                  <Link href={`/portofolio/produk/${project.id}`} className="block flex-1 flex flex-col">
 
-                    {/* Image Container */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
-                      <Image
+                    {/* Image Container — fixed aspect ratio */}
+                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900 shrink-0">
+                      <ImageWithFallback
                         src={project.image}
                         alt={project.name}
                         fill
@@ -105,18 +105,20 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                       </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-6 pb-4">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                    {/* Content — flex-grow untuk sejajar antar card */}
+                    <div className="p-6 pb-4 flex flex-col flex-1">
+                      {/* Nama — max 2 baris */}
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors line-clamp-2">
                         {project.name}
                       </h3>
-                      <p className="text-zinc-400 text-sm line-clamp-2">
+                      {/* Deskripsi — max 3 baris, teks panjang ter-crop */}
+                      <p className="text-zinc-400 text-sm line-clamp-3 flex-1">
                         {project.description}
                       </p>
                     </div>
                   </Link>
 
-                  {/* Action Buttons */}
+                  {/* Action Buttons — selalu di bawah */}
                   <div className="px-6 pb-6 pt-2 flex flex-wrap gap-2">
                     {/* Tombol: Lihat Project (primary – filled red) */}
                     <Link

@@ -19,7 +19,8 @@ const Header = () => {
   const navItems = [
     { href: "/", label: "Beranda" },
     { href: "/portofolio/produk", label: "Portofolio" },
-    { href: "/portofolio/sertifikasi", label: "Sertifikasi" },
+    { href: "/portofolio/sertifikasi", label: "Sertifikat" },
+    { href: "/portofolio/pengalaman", label: "Pengalaman" },
     { href: "/about", label: "Tentang Saya" },
   ];
 

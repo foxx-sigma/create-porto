@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CertificateItem } from "../../data/sertifikasi";
+import ImageWithFallback from "../../components/ImageWithFallback";
 import "../../animations.css";
 
 interface SertifikasiClientProps {
@@ -39,7 +39,7 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
           
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-              Sertifikasi
+              Sertifikat
             </span>
           </h1>
 
@@ -67,6 +67,7 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
             {certificates.map((cert, i) => (
               <motion.div
                 key={cert.id}
+                className="h-full"
                 initial={{ opacity: 0, y: 30, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
@@ -74,15 +75,15 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
               >
                 <motion.button
                   onClick={() => setSelected(cert)}
-                  className="w-full text-left group"
+                  className="w-full text-left group h-full"
                   whileHover={{ y: -8, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors duration-300 hover:shadow-2xl hover:shadow-red-500/10">
+                  <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-colors duration-300 hover:shadow-2xl hover:shadow-red-500/10 flex flex-col h-full">
 
-                    {/* Certificate Image */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
-                      <Image
+                    {/* Certificate Image — fixed aspect ratio */}
+                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900 shrink-0">
+                      <ImageWithFallback
                         src={cert.image}
                         alt={cert.name}
                         fill
@@ -101,12 +102,13 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
                       </div>
                     </div>
 
-                    {/* Card Info */}
-                    <div className="p-5">
+                    {/* Card Info — flex-grow agar semua card sejajar */}
+                    <div className="p-5 flex flex-col flex-1">
+                      {/* Nama — max 2 baris */}
                       <h3 className="text-base font-bold text-white mb-1.5 group-hover:text-red-400 transition-colors line-clamp-2">
                         {cert.name}
                       </h3>
-                      <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center justify-between gap-2 mt-auto">
                         <span className="text-zinc-400 text-sm line-clamp-1">{cert.issuer}</span>
                         <span className="text-zinc-500 text-xs shrink-0">{cert.date}</span>
                       </div>
@@ -158,7 +160,7 @@ export default function SertifikasiClient({ certificates }: SertifikasiClientPro
               {/* Image */}
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
                 <div className="relative aspect-[4/3] w-full">
-                  <Image
+                  <ImageWithFallback
                     src={selected.image}
                     alt={selected.name}
                     fill
