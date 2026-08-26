@@ -2,156 +2,154 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "motion/react";
+import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
+import type { NavItem } from "@/components/ui/spotlight-navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const navItems: NavItem[] = [
+  { href: "/", label: "Beranda" },
+  { href: "/portofolio/produk", label: "Portofolio" },
+  { href: "/portofolio/sertifikasi", label: "Sertifikat" },
+  { href: "/portofolio/pengalaman", label: "Pengalaman" },
+  { href: "/about", label: "Tentang Saya" },
+];
+
+/** Cocokkan pathname ke index navItems.
+ *  - "/" → exact match
+ *  - path lain → startsWith
+ */
+function getActiveIndex(pathname: string): number {
+  // Cek dari belakang (more specific dulu) supaya "/portofolio/produk"
+  // tidak ikut match "/" atau "/portofolio" yang lebih luas
+  for (let i = navItems.length - 1; i >= 0; i--) {
+    const { href } = navItems[i];
+    if (href === "/") {
+      if (pathname === "/") return i;
+    } else if (pathname.startsWith(href)) {
+      return i;
+    }
+  }
+  return 0; // fallback Beranda
+}
+
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
-  const navItems = [
-    { href: "/", label: "Beranda" },
-    { href: "/portofolio/produk", label: "Portofolio" },
-    { href: "/portofolio/sertifikasi", label: "Sertifikat" },
-    { href: "/portofolio/pengalaman", label: "Pengalaman" },
-    { href: "/about", label: "Tentang Saya" },
-  ];
+  const activeIndex = getActiveIndex(pathname);
 
-  // Active: exact match untuk "/", startsWith untuk path lain
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  // GSAP: entrance animation + scroll blur
+  useGSAP(
+    () => {
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
 
-  // GSAP: entrance animation + scroll shrink
-  useGSAP(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+      if (!headerRef.current) return;
 
-    if (!headerRef.current) return;
-
-    // --- Entrance: slide-down dari atas ---
-    if (!prefersReduced) {
-      gsap.from(headerRef.current, {
-        yPercent: -100,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 0.1,
-      });
-    }
-
-    // --- Scroll shrink: kurangi padding saat scroll ---
-    ScrollTrigger.create({
-      start: "top top",
-      end: "+=120",
-      onUpdate: (self) => {
-        if (prefersReduced) return;
-        const progress = self.progress;
-        gsap.set(headerRef.current, {
-          backdropFilter: `blur(${12 + progress * 12}px)`,
+      if (!prefersReduced) {
+        gsap.from(headerRef.current, {
+          yPercent: -100,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.1,
         });
-      },
-    });
+      }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.vars.id === "header-scroll") t.kill();
+      ScrollTrigger.create({
+        start: "top top",
+        end: "+=120",
+        onUpdate: (self) => {
+          if (prefersReduced) return;
+          const progress = self.progress;
+          gsap.set(headerRef.current, {
+            backdropFilter: `blur(${12 + progress * 12}px)`,
+          });
+        },
       });
-    };
-  }, { scope: headerRef });
+
+      return () => {
+        ScrollTrigger.getAll().forEach((t) => {
+          if (t.vars.id === "header-scroll") t.kill();
+        });
+      };
+    },
+    { scope: headerRef }
+  );
+
+  const handleNavClick = (item: NavItem) => {
+    router.push(item.href);
+  };
 
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 bg-black/30 backdrop-blur-xl border-b border-white/10"
+      className="sticky top-0 z-50 bg-black/30 backdrop-blur-xl"
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
 
-          {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2">
+          {/* ── Logo ── */}
+          <Link href="/" className="group flex items-center gap-2 shrink-0">
             <motion.div
               className="relative"
               whileHover={{ scale: 1.08, rotate: 4 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 transition-shadow duration-300">
-                <Image src="/img/profile/fotoku.jpg" alt="Aesar" fill unoptimized className="object-cover" />
+              {/* Mobile: w-8 h-8 / Desktop: w-10 h-10 */}
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg shadow-red-500/30 group-hover:shadow-red-500/50 transition-shadow duration-300">
+                <Image
+                  src="/img/profile/fotoku.jpg"
+                  alt="Aesar"
+                  fill
+                  unoptimized
+                  className="object-cover"
+                />
               </div>
-
             </motion.div>
-            <span className="text-xl font-bold text-white hidden sm:block">
+            {/* Mobile: text-base / Desktop: text-xl */}
+            <span className="text-base sm:text-xl font-bold text-white hidden sm:block">
               aesr
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`relative px-6 py-2.5 rounded-full font-medium transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? "text-black"
-                      : "text-zinc-300 hover:text-white"
-                  }`}
-                >
-                  {/* Active pill background */}
-                  {isActive(item.href) && (
-                    <motion.span
-                      layoutId="nav-active-pill"
-                      className="absolute inset-0 bg-white rounded-full shadow-lg"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Unduh CV */}
-            <motion.a
-              href="/cv/aesar-cv.pdf"
-              download="Aesar-CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-full border border-white/20 hover:border-white/40 transition-colors duration-200"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              aria-label="Unduh CV"
-            >
-              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-              </svg>
-              <span>CV</span>
-            </motion.a>
-
+          {/* ── SpotlightNavbar — Desktop & Tablet (≥768px) ── */}
+          {/*
+            `pt-10` default SpotlightNavbar dihapus via className override.
+            Tablet (768–1023px): compact-nav class mengecilkan padding+font via globals.css
+          */}
+          <div className="hidden md:flex items-center">
+            <SpotlightNavbar
+              items={navItems}
+              activeIndex={activeIndex}
+              onItemClick={handleNavClick}
+              className="compact-nav-wrapper"
+            />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* ── Hamburger — Mobile (<768px) ── */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
             whileTap={{ scale: 0.9 }}
           >
             <AnimatePresence mode="wait" initial={false}>
               {isMenuOpen ? (
                 <motion.svg
                   key="close"
-                  className="w-6 h-6 text-white"
+                  className="w-5 h-5 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -160,12 +158,17 @@ const Header = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.18 }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </motion.svg>
               ) : (
                 <motion.svg
                   key="open"
-                  className="w-6 h-6 text-white"
+                  className="w-5 h-5 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -174,14 +177,19 @@ const Header = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.18 }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </motion.svg>
               )}
             </AnimatePresence>
           </motion.button>
         </div>
 
-        {/* Mobile Menu — AnimatePresence untuk smooth open/close */}
+        {/* ── Mobile Dropdown Menu ── */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -192,48 +200,29 @@ const Header = () => {
               transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
             >
               <ul className="space-y-2">
-                {navItems.map((item, i) => (
-                  <motion.li
-                    key={item.href}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`block px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                        isActive(item.href)
-                          ? "bg-white text-black"
-                          : "bg-white/5 text-zinc-300 hover:bg-white/10"
-                      }`}
+                {navItems.map((item, i) => {
+                  const active = activeIndex === i;
+                  return (
+                    <motion.li
+                      key={item.href}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 }}
                     >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-
-                {/* Unduh CV — Mobile */}
-                <motion.li
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.06 }}
-                >
-                  <a
-                    href="/cv/aesar-cv.pdf"
-                    download="Aesar-CV.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-2 px-6 py-3 bg-white/5 text-zinc-300 hover:bg-white/10 font-medium rounded-xl transition-all duration-300"
-                  >
-                    <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                    </svg>
-                    Unduh CV
-                  </a>
-                </motion.li>
-
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`block px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                          active
+                            ? "bg-red-500/20 border border-red-500/40 text-red-400"
+                            : "bg-white/5 text-zinc-300 hover:bg-white/10 border border-transparent hover:border-white/10"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  );
+                })}
               </ul>
             </motion.div>
           )}

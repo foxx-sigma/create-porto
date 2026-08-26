@@ -142,6 +142,7 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div ref={buttonsRef} className="flex flex-wrap gap-4">
+                {/* Primary: Lihat Portofolio */}
                 <motion.div
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
@@ -158,6 +159,27 @@ export default function Home() {
                   </Link>
                 </motion.div>
 
+                {/* Secondary: Download CV — red accent solid */}
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <a
+                    href="/cv/aesar-cv.pdf"
+                    download="Aesar-CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-full border border-red-500 hover:border-red-400 transition-colors duration-300 flex items-center gap-2 shadow-lg shadow-red-900/30"
+                  >
+                    <svg className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download CV
+                  </a>
+                </motion.div>
+
+                {/* Tertiary: Tentang Saya — dark glass outline */}
                 <motion.div
                   whileHover={{ scale: 1.04, backgroundColor: "rgba(255,255,255,0.1)" }}
                   whileTap={{ scale: 0.97 }}
