@@ -15,10 +15,17 @@ export const arraySertifikasi: CertificateItem[] = [
     date:"Juni 2026"  ,
   },
   {
+    id:2,
+    name:"SQL Basic Certificate",
+    image:"/img/sertifikat/sql-hackerrank.png",
+    issuer:"Hackerrank",
+    date:"Agustus 2026",
+  },
+  {
     id: 2,
     name:"Cyber Security Awareness",
     image: "/img/sertifikat/cyber.png",
-    issuer:"SMK Telmkom Malang",
+    issuer:"SMK Telkom Malang",
     date:"Mei 2024"  ,
   },
   {
@@ -57,12 +64,12 @@ export const arraySertifikasi: CertificateItem[] = [
     date: "October 2025",
   },
   {
-    id:8,
-    name:"SQL Basic Certificate",
-    image:"/img/sertifikat/sql-hackerrank.png",
-    issuer:"Hackerrank",
-    date:"Agustus 2026",
-  }
+    id: 8,
+    name:"Cyber Security Awareness",
+    image: "/img/sertifikat/cyber.png",
+    issuer:"SMK Telkom Malang",
+    date:"Mei 2024"  ,
+  },
 
   // TODO: isi manual — tambahkan data sertifikat di sini, contoh:
   // {
