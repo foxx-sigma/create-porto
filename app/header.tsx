@@ -97,7 +97,7 @@ const Header = () => {
       className="sticky top-0 z-50 bg-black/30 backdrop-blur-xl"
     >
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
+        <div className="relative flex items-center justify-between">
 
           {/* ── Logo ── */}
           <Link href="/" className="group flex items-center gap-2 shrink-0">
@@ -123,12 +123,12 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* ── SpotlightNavbar — Desktop & Tablet (≥768px) ── */}
+          {/* ── SpotlightNavbar — Desktop & Tablet (≥768px) — posisi tengah absolut ── */}
           {/*
             `pt-10` default SpotlightNavbar dihapus via className override.
             Tablet (768–1023px): compact-nav class mengecilkan padding+font via globals.css
           */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
             <SpotlightNavbar
               items={navItems}
               activeIndex={activeIndex}
