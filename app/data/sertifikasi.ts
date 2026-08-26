@@ -55,6 +55,13 @@ export const arraySertifikasi: CertificateItem[] = [
     image: "/img/sertifikat/olimpiade.jpeg",
     issuer: "Olimpiade Indonesia & Liga Olimpiade",
     date: "October 2025",
+  },
+  {
+    id:8,
+    name:"SQL Basic Certificate",
+    image:"/img/sertifikat/sql-hackerrank.png",
+    issuer:"Hackerrank",
+    date:"Agustus 2026",
   }
 
   // TODO: isi manual — tambahkan data sertifikat di sini, contoh:
