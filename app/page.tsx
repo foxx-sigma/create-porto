@@ -142,22 +142,6 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div ref={buttonsRef} className="flex flex-wrap gap-4">
-                {/* Primary: Lihat Portofolio */}
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Link
-                    href="/portofolio/produk"
-                    className="group px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-colors duration-300 flex items-center gap-2"
-                  >
-                    Lihat Portofolio
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </motion.div>
 
                 {/* Secondary: Download CV — red accent solid */}
                 <motion.div
@@ -177,20 +161,6 @@ export default function Home() {
                     </svg>
                     Download CV
                   </a>
-                </motion.div>
-
-                {/* Tertiary: Tentang Saya — dark glass outline */}
-                <motion.div
-                  whileHover={{ scale: 1.04, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Link
-                    href="/about"
-                    className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-300 block"
-                  >
-                    Tentang Saya
-                  </Link>
                 </motion.div>
               </div>
 
