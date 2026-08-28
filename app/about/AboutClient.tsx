@@ -132,7 +132,7 @@ export default function AboutClient() {
                   transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   <Image
-                    src="/img/profile/tido.jpg"
+                    src="/img/profile/foto-profesional.png"
                     alt="Foto profil Aesar"
                     fill
                     unoptimized
