@@ -70,5 +70,21 @@ export const arrayPengalaman: PengalamanItem[] = [
       label: "Tonton di YouTube",
       url: "https://www.youtube.com/live/cLSGVSkwkuM?si=8FfEvRiNP4S80RE3", 
     },
+  },
+  {
+    id: 5,
+    nama:"Moklet Serve 2025",
+    tahun:"September 2025",
+    gambar:"/img/pengalaman/moklet-serve.jpg",
+    deskripsiSingkat:
+    "Moklet Serve merupakan program pengabdian masyarakat yang melibatkan siswa-siswi SMK Telkom Malang dalam penerapan keterampilan digital dan kepedulian sosial melalui pemberian materi edukasi bagi murid Sekolah Dasar.",
+    deskripsiLengkap:[
+    "Moklet Serve merupakan program pengabdian masyarakat yang melibatkan siswa-siswi SMK Telkom Malang untuk berkontribusi secara langsung kepada masyarakat melalui kegiatan edukasi bagi murid Sekolah Dasar. Dalam program ini, siswa terlibat dalam mempersiapkan dan menyampaikan materi yang dikemas secara interaktif agar mudah dipahami dan menarik bagi peserta didik. Kegiatan ini menjadi wadah untuk berbagi pengetahuan sekaligus memperkenalkan keterampilan digital kepada generasi muda sejak dini.",
+    "Selain memberikan manfaat bagi peserta didik, Moklet Serve juga menjadi pengalaman bagi siswa untuk mengembangkan kemampuan komunikasi, kerja sama tim, kreativitas, dan tanggung jawab. Melalui keterlibatan langsung dalam kegiatan sosial, program ini mendorong siswa untuk menerapkan pengetahuan yang dimiliki sekaligus membangun kepedulian terhadap lingkungan dan masyarakat sekitar.",
+    ],
+    linkDokumentasi: {
+      label: "Tonton di Instagram",
+      url: "https://www.instagram.com/reel/DPVPD6zAUSm/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
+    }
   }
 ];

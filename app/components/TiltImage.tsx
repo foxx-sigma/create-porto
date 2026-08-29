@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ImageWithFallback from "@/app/components/ImageWithFallback";
 import { useRef } from "react";
 import {
   motion,
@@ -74,13 +74,12 @@ export default function TiltImage({ src, alt }: TiltImageProps) {
         className="relative aspect-square rounded-3xl overflow-hidden ring-4 ring-white/10 shadow-2xl cursor-none"
       >
         {/* Foto */}
-        <Image
+        <ImageWithFallback
           src={src}
           alt={alt}
           fill
           unoptimized
           className="object-cover"
-          draggable={false}
         />
 
         {/* Glare overlay */}

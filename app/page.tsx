@@ -233,7 +233,7 @@ export default function Home() {
                 <div className="relative z-10 w-full max-w-md mx-auto animate-float-slow">
                   {/* TiltImage — tilt 3D interaktif, GSAP entrance via imageRef parent */}
                   <TiltImage
-                    src="/img/profile/foto-profesional.png"
+                    src="/img/profile/foto-profesional.jpg"
                     alt="Foto Aesar — Fullstack Developer"
                   />
                 </div>
