@@ -17,7 +17,6 @@ const heroData = {
   bio: "Jago nyalahin CSS padahal salah sendiri, tapi tetep produktif.",
 };
 
-// TODO: tulis bio lengkap sebagai string paragraf-paragraf
 const fullBio: string[] = [
   // TODO: isi paragraf pertama bio lengkap
   "Perkenalkan, namaku Aesar, siswa RPL di SMK Telkom Malang yang awalnya cuma penasaran kenapa website bisa gerak-gerak sendiri, terus keterusan sampai sekarang bolak-balik ngoding frontend dan backend.",

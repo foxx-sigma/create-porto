@@ -150,8 +150,8 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <a
-                    href="/cv/aesar-cv.pdf"
-                    download="Aesar-CV.pdf"
+                    href="/cv/CV_Aesar_Aulayain_Hernando.pdf"
+                    download="CV_Aesar_Aulayain_Hernando.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-full border border-red-500 hover:border-red-400 transition-colors duration-300 flex items-center gap-2 shadow-lg shadow-red-900/30"
