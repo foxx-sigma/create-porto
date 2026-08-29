@@ -42,7 +42,6 @@ const skills: string[] = [
   "PostgreSQL",
   "Prisma",
   "MySQL",
-  "Shadcn/ui",
   "Git",
   "Github",
   "Postman",
