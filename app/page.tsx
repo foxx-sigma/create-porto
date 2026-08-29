@@ -13,7 +13,6 @@ import TiltImage from "./components/TiltImage";
 gsap.registerPlugin(ScrollTrigger);
 
 
-
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
