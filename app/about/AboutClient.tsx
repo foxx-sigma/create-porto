@@ -28,7 +28,7 @@ const fullBio: string[] = [
   "Di luar ngoding, tetap manusia biasa yang butuh kopi, kadang stuck di error yang ternyata cuma salah titik koma, dan masih terus belajar satu error demi satu error. Karena buatku, tiap bug yang berhasil dibenerin itu kayak level-up kecil menuju jadi developer yang lebih jago."
 ];
 
-// TODO: isi array ini dengan nama-nama teknologi/skill kamu
+
 const skills: string[] = [
   "HTML",
   "CSS",
@@ -53,30 +53,27 @@ const skills: string[] = [
 
 
 
-  // Contoh format: "React", "TypeScript", "Next.js", "Tailwind CSS"
-  // TODO: isi manual
+
 ];
 
-// ── Timeline ──────────────────────────────────────────────────────────────────
+
 interface TimelineItem {
   year: string;
   title: string;
   description: string;
 }
 
-// TODO: isi array timeline dengan pengalaman, pendidikan, atau pencapaian
+
 const timeline: TimelineItem[] = [
   {
     year: "2024 - Sekarang",
     title: "SMK Telkom Malang",
     description: "Siswa jurusan Rekayasa Perangkat Lunak (RPL). Mempelajari dasar pemrograman, pengembangan web frontend dan backend."
   },
-  // Contoh format:
-  // { year: "2024", title: "SMK Telkom Malang", description: "Mulai belajar web development." },
-  // TODO: isi manual
+
 ];
 
-// ── Component ─────────────────────────────────────────────────────────────────
+
 export default function AboutClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
