@@ -2,8 +2,8 @@ export interface CertificateItem {
   id: number;
   name: string;
   image: string;
-  issuer: string;  // penyelenggara/lembaga
-  date: string;    // isi bebas, mis. "2024" atau "Januari 2024"
+  issuer: string;  
+  date: string;    
 }
 
 export const arraySertifikasi: CertificateItem[] = [

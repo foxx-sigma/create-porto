@@ -8,11 +8,11 @@ export interface PortofolioItem {
   name: string;
   image: string;
   description: string;
-  role: string;           // peran/kontribusi per project, mis. "Full-Stack Developer", "Frontend Lead"
-  overview: string;       // paragraf overview asli per project
-  tools: string[];        // daftar tools/tech stack asli per project
-  features: ProjectFeature[]; // isi manual per project
-  repoUrl?: string;       // URL repo GitHub (opsional — isi manual, kosongkan jika belum ada)
+  role: string;           
+  overview: string;       
+  tools: string[];        
+  features: ProjectFeature[]; 
+  repoUrl?: string;      
 }
 
 
