@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ── Data Placeholders ─────────────────────────────────────────────────────────
 const heroData = {
   name: "Aesar",
-  title: "Full-Stack Developer",
+  title: "Junior Full-Stack Developer",
   bio: "Jago nyalahin CSS padahal salah sendiri, tapi tetep produktif.",
 };
 

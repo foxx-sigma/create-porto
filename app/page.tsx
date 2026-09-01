@@ -117,7 +117,7 @@ export default function Home() {
                   </span>
                   <TypeAnimation
                     sequence={[
-                      "Full-Stack Developer",
+                      "Junior Full-Stack Developer",
                       2000,
                       "Siswa SMK Telkom Malang",
                       2000,
